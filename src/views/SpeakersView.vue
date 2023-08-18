@@ -1,5 +1,8 @@
 <template>
   <div class="speakers">
+    <h1 v-if="speakersData.length == 0" style="margin-top: 4rem">
+      Speakers will be announced shortly
+    </h1>
     <speakerCard
       v-for="(speaker, index) in speakersData"
       :key="speaker.name"

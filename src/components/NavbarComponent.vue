@@ -96,10 +96,10 @@ function toggleNav() {
     content: "";
     position: absolute;
     z-index: 0;
-    bottom: -0.75rem;
+    bottom: -0.7rem;
     left: 10px;
     width: 90%;
-    height: 50px;
+    height: 35px;
     background-image: url("../assets/images/lines/menuLine.svg");
     background-repeat: no-repeat;
     background-position: center;

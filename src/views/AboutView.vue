@@ -12,12 +12,12 @@
       Visitors are enthusiastic Computer Science and Artificial Intelligence
       bachelor and master students from all over the country. Over the past
       years the conference has grown considerably. Where in 2017 the conference
-      was visited by 450 students, we expect around 775 visitors in 2022.
+      was visited by 450 students, we expect around 800 visitors in 2023.
       Various talks will be held at the conference by speakers from both the
       business world and the academic world. The students are challenged to dive
       into a specific topic from different perspectives. We want to inspire them
       and invite them to think further than their current views. This year's
-      SNiC is organized by students from GEWIS.
+      SNiC is organized by students from Sticky.
     </p>
   </infoItem>
   <infoItem :title="'Committee'" :line="'purple2_right'">

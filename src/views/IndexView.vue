@@ -36,16 +36,16 @@
   </infoItem>
   <infoItem :title="'Tickets'" :line="'purple2_right'"
     ><p>
-      With your SNiC 2022: CelerIT ticket, you get full access to everyting the
-      conference has to offer. From the necessary bus trip from and to your
+      With your SNiC 2023: CreativIT ticket, you get full access to everyting
+      the conference has to offer. From the necessary bus trip from and to your
       university campus, to lunch and dinner. From an amazing spectrum of
       different speakers, to a free goodiebag. Even the social drink afterwards
       is included!
     </p>
     <p>
-      You can buy tickets for the SNiC 2022: CelerIT conference at participating
-      study associations. Visit their website or their office/room for more
-      information about where to get your ticket.
+      You can buy tickets for the SNiC 2023: CreativIT conference at
+      participating study associations. Visit their website or their office/room
+      for more information about where to get your ticket.
     </p></infoItem
   >
 </template>
