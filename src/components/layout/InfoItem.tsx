@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Typography, Box } from '@mui/material';
+import { Typography, Box } from '@mui/material';
 
 interface Props {
   children: React.ReactNode | React.ReactNode[];
@@ -7,6 +7,7 @@ interface Props {
   inverse?: boolean;
   purple?: boolean;
   random?: boolean;
+  noMargin?: boolean;
 }
 
 function getImage(inverse: boolean, purple: boolean, random: boolean) {
@@ -21,10 +22,10 @@ function getImage(inverse: boolean, purple: boolean, random: boolean) {
 }
 
 function InfoItem({
-  children, inverse, purple, title, random,
+  children, inverse, purple, title, random, noMargin,
 }: Props) {
   return (
-    <Container
+    <Box
       sx={{
         position: 'relative',
         width: '100%',
@@ -34,7 +35,7 @@ function InfoItem({
         padding: '1rem',
         borderRadius: '5px',
         boxShadow: '2px 4px 5px 4px #00000040',
-        marginBottom: '2rem',
+        marginBottom: noMargin ? '0.5rem' : '2rem',
       }}
     >
       <Typography sx={{ position: 'relative', zIndex: '2', fontSize: '54px' }}>{title}</Typography>
@@ -50,8 +51,8 @@ function InfoItem({
         zIndex: '1',
       }}
       />
-      <Box sx={{ marginTop: '1rem' }}>{children}</Box>
-    </Container>
+      <Box sx={{ marginTop: noMargin ? '0' : '1rem' }}>{children}</Box>
+    </Box>
   );
 }
 
@@ -59,6 +60,7 @@ InfoItem.defaultProps = ({
   inverse: false,
   purple: false,
   random: false,
+  noMargin: false,
 });
 
 export default InfoItem;

@@ -4,7 +4,7 @@ import TypographyHeader from '../../components/layout/TypographyHeader';
 
 function NotFound() {
   return (
-    <Box sx={{ textAlign: 'center' }}>
+    <Box sx={{ textAlign: 'center', color: 'white' }}>
       <TypographyHeader variant="h2">
         Error 404
       </TypographyHeader>

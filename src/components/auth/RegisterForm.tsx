@@ -147,7 +147,7 @@ function RegisterForm({ user, handleSubmit }: Props) {
               {' '}
               <a target="_blank" href="/celerit-privacy-policy.pdf">privacy policy</a>
               {' '}
-              of SNiC 2022: CelerIT*
+              of SNiC 2023: CreativIT*
             </span>
           )}
           sx={(theme) => ({

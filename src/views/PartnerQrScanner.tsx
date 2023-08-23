@@ -45,7 +45,7 @@ function PartnerQrScanner() {
               {user.partnerId == null || user.partner == null ? (
                 <Alert severity="error" sx={{ marginBottom: '1rem' }}>
                   You are not associated with a partner! Scanning QR codes will
-                  therefore always fail. Please contact the CelerIT committee to have this fixed.
+                  therefore always fail. Please contact the CreativIT committee to have this fixed.
                 </Alert>
               ) : (
                 <Alert severity="info" sx={{ marginBottom: '1rem' }}>

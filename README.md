@@ -1,11 +1,11 @@
-# CelerIT-Website-Frontend
-This is the frontend of the SNiC 2022: CelerIT frontend. It contains two branches:
+# CreativIT-Website-Frontend
+This is the frontend of the SNiC 2023: CreativIT frontend. It contains one branche:
 - `main`: This is the branch that contains the version of the frontend that requires the backend.
 The backend contains all information about partners, speakers and the program.
-- `readonly`: This branch is decoupled from the backend. It still contains pages that require the backend, but these are only the admin pages and are hidden.
-The public pages use JSON files to input data. Static files like images are also added to the frontend.
 
 The website is built in such a way that other committees can use it as well. For possible improvement to the frontend, please look at the CelerIT evaluation document.
+
+This repo is a fork of the SNiC 2022: CelerIT frontend. you can see the repo of this edition for more information.
 
 ## Installation
 1. Install NodeJS 16, e.g. via Node Version Manager.

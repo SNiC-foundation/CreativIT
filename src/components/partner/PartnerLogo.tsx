@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Paper, Typography } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import Button from '@mui/material/Button';
 import { Info, Public } from '@mui/icons-material';
 import { Partner } from '../../clients/server.generated';
@@ -17,7 +17,7 @@ function PartnerLogo({ partner, size, extensive }: Props) {
   const [modalOpen, setModalOpen] = React.useState(false);
 
   return (
-    <Paper
+    <Box
       sx={{
         display: 'flex',
         justifyContent: 'center',
@@ -25,6 +25,10 @@ function PartnerLogo({ partner, size, extensive }: Props) {
         flexDirection: 'column',
         padding: '1.5rem',
         width: size,
+
+        backgroundColor: 'primary.main',
+        borderRadius: '5px',
+        boxShadow: '2px 4px 5px 4px #00000040',
       }}
     >
       <Box sx={{
@@ -32,14 +36,14 @@ function PartnerLogo({ partner, size, extensive }: Props) {
       }}
       >
         <img
-          src={apiImageUrl(partner.logoFilename)}
+          src={partner.logoFilename ? apiImageUrl(partner.logoFilename) : '/speaker-placeholder.png'}
           alt="logo"
           style={{ maxHeight: size, maxWidth: '100%' }}
         />
       </Box>
       {extensive ? (
         <Box>
-          <TypographyHeader variant="h6" sx={{ paddingTop: '1rem', color: 'darkgrey', fontStyle: 'italic' }}>
+          <TypographyHeader variant="h6" sx={{ paddingTop: '1rem', color: '#f9eee3', fontStyle: 'italic' }}>
             {partner.specialization}
           </TypographyHeader>
           {partner.shortDescription ? (
@@ -50,12 +54,12 @@ function PartnerLogo({ partner, size, extensive }: Props) {
             </Box>
           ) : null}
           <Box sx={{ paddingTop: '1rem' }}>
-            <Button href={partner.url} target="_blank" variant="contained" sx={{ marginRight: partner.description ? '1rem' : '' }}>
+            <Button href={partner.url} target="_blank" variant="contained" color="secondary" sx={{ marginRight: partner.description ? '1rem' : '' }}>
               <Public />
             </Button>
-            {partner.description ? (
+            {partner.description && (partner.package === 'platinum' || partner.package === 'gold') ? (
               <>
-                <Button variant="contained" onClick={() => setModalOpen(true)}>
+                <Button variant="contained" color="secondary" onClick={() => setModalOpen(true)}>
                   <Info />
                 </Button>
                 <PartnerModal
@@ -68,7 +72,7 @@ function PartnerLogo({ partner, size, extensive }: Props) {
           </Box>
         </Box>
       ) : null}
-    </Paper>
+    </Box>
   );
 }
 

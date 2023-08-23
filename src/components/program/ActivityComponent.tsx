@@ -25,16 +25,16 @@ function ActivityComponent({ activity, getProgram }: Props) {
         }}
       >
         <Box sx={{ marginBottom: '0.5rem', flex: 1 }}>
-          <Typography variant="h5">
+          <Typography variant="h5" sx={{ marginBottom: '1rem' }}>
             {activity.name}
           </Typography>
-          <Typography variant="h6" sx={{ fontStyle: 'italic' }}>
-            {activity.location}
+          <Typography variant="body1" sx={{ fontStyle: 'italic' }}>
+            {`${activity.speakers.map((speaker) => speaker.name).join(', ')} - ${activity.location}`}
           </Typography>
           <Typography
             variant="body1"
             sx={{
-              marginTop: '0.75rem',
+              marginTop: '1rem',
               display: '-webkit-box',
               WebkitBoxOrient: 'vertical',
               WebkitLineClamp: 5,

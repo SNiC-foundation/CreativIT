@@ -50,7 +50,6 @@ function PartnerGrid({ partners, scaleFactor, extensive }: Props) {
     <>
       {orderedPartners.map((o, i) => (
         <Box sx={{ paddingBottom: '4rem' }} key={o.header}>
-          {i !== 0 ? (<hr />) : null}
           <PartnerHeader title={o.header} inverse={i % 2 === 0} purple={i % 2 === 0} />
           <LogoGrid>
             {o.partners.map((p) => (

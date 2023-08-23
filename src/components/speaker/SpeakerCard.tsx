@@ -12,7 +12,7 @@ interface Props {
 }
 
 function getBackgroundColor(purple: boolean) {
-  return purple ? '#483291' : '#91288D';
+  return purple ? 'secondary.main' : 'secondary.dark';
 }
 
 function SpeakerCard({ speaker, purple }: Props) {

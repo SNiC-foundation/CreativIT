@@ -49,7 +49,7 @@ function CheckIn() {
     codeIcon = (<Clear color="error" sx={{ width: '100%', height: '100%' }} />);
   } else if (ticket.user == null) {
     codeIcon = (<QuestionMark color="warning" sx={{ width: '100%', height: '100%' }} />);
-    alert = (<Alert sx={{ mb: '1rem' }} severity="warning">This ticket has not been activated on the CelerIT website! Please send this person to support.</Alert>);
+    alert = (<Alert sx={{ mb: '1rem' }} severity="warning">This ticket has not been activated on the CreativIT website! Please send this person to support.</Alert>);
   } else if (ticket.user.subscriptions.length === 0) {
     codeIcon = (<PriorityHigh color="info" sx={{ width: '100%', height: '100%' }} />);
     alert = (<Alert sx={{ mb: '1rem' }} severity="info">This visitor was too late with activating their ticket. Please give them an empty badge!</Alert>);

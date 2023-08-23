@@ -1,23 +1,25 @@
 import React, { useEffect } from 'react';
 import {
-  Box, CircularProgress, Grid, Paper, styled, Typography,
+  Box, CircularProgress, Grid, styled, Typography,
 } from '@mui/material';
 import {
   Client, ProgramPart,
 } from '../../clients/server.generated';
 import ActivityComponent from './ActivityComponent';
-import PageHeader from '../layout/PageHeader';
 import { AuthContext } from '../../auth/AuthContextProvider';
 import { ActivityWithParticipantAmount } from './ProgramModal';
+import InfoItem from '../layout/InfoItem';
 
-const Item = styled(Paper)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+const Item = styled(Box)(({ theme }) => ({
+  backgroundColor: '#12193a',
   ...theme.typography.body2,
   padding: theme.spacing(1),
   textAlign: 'center',
-  color: theme.palette.text.secondary,
+  color: 'white',
   height: '100%',
   width: '100%',
+  borderRadius: '5px',
+  boxShadow: '2px 4px 5px 4px #00000040',
 }));
 
 function ProgramComponent() {
@@ -56,26 +58,27 @@ function ProgramComponent() {
   if (activities != null && programParts != null) {
     const locations = Array.from(new Set(activities.map((element) => element.location)));
 
-    const activitiesHtml = programParts.map((programPart) => {
+    const activitiesHtml = programParts.map((programPart, programPartLoopIndex) => {
       const activitiesInProgramPart = activities
         .filter((activity) => activity.programPartId === programPart.id);
 
       return (
         <>
           <Grid item xs={1}>
-            <Item sx={(theme) => ({
-              backgroundColor: theme.palette.primary.main, display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column',
-            })}
-            >
-              <Typography variant="h4" sx={{ color: 'white' }}>
-                {programPart.name}
-              </Typography>
-              <Typography variant="subtitle1" sx={{ color: 'white' }}>
-                {programPart.beginTime.toLocaleTimeString(undefined, { timeZone: 'Europe/Amsterdam', timeStyle: 'short' })}
-                -
-                {programPart.endTime.toLocaleTimeString(undefined, { timeZone: 'Europe/Amsterdam', timeStyle: 'short' })}
-              </Typography>
-            </Item>
+            <Box sx={{ marginTop: '4rem' }}>
+              <InfoItem
+                title={programPart.name}
+                noMargin
+                purple={programPartLoopIndex % 2 === 0}
+                inverse={programPartLoopIndex % 2 === 0}
+              >
+                <Typography variant="subtitle1" sx={{ color: 'white' }}>
+                  {programPart.beginTime.toLocaleTimeString(undefined, { timeZone: 'Europe/Amsterdam', timeStyle: 'short' })}
+                  -
+                  {programPart.endTime.toLocaleTimeString(undefined, { timeZone: 'Europe/Amsterdam', timeStyle: 'short' })}
+                </Typography>
+              </InfoItem>
+            </Box>
           </Grid>
 
           {locations.map((location) => {
@@ -90,7 +93,7 @@ function ProgramComponent() {
             return (
               <Grid item xs={1}>
                 {userActivities.includes(activity.id) || (user && activity.subscribe == null) ? (
-                  <Item sx={{ backgroundColor: '#e1e1e1' }}>
+                  <Item sx={{ backgroundColor: 'secondary.main' }}>
                     <ActivityComponent
                       activity={activity}
                       getProgram={getProgram}
@@ -111,29 +114,10 @@ function ProgramComponent() {
       );
     });
 
-    const locationsHtml = locations.map((location) => (
-      <Grid item xs={1} sx={{ alignSelf: 'flex-end' }}>
-        <Box>
-          <Item sx={(theme) => ({ backgroundColor: theme.palette.primary.main })}>
-            <Typography variant="h4" sx={{ color: 'white' }}>{location}</Typography>
-          </Item>
-        </Box>
-      </Grid>
-    ));
-
     return (
       <>
-        <Box sx={{ textAlign: 'center' }}>
-          <PageHeader
-            title="Program"
-            text="Below you may find the full program for SNiC 2023."
-            extraMargin={4}
-          />
-        </Box>
-        <Grid container direction="row" spacing={2} columns={locations.length + 1} sx={{ display: { xs: 'none', xl: 'flex' } }} alignItems="stretch">
+        <Grid container direction="row" spacing={2} columns={locations.length} sx={{ display: { xs: 'none', xl: 'flex' } }} alignItems="stretch">
           {/* This is an empty box to make the table look nicer */}
-          <Grid item xs={1} />
-          {locationsHtml}
           {activitiesHtml}
         </Grid>
 

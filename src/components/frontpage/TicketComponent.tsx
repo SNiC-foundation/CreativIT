@@ -11,7 +11,7 @@ function TicketComponent() {
         social drink afterwards is included!
       </Typography>
       <Typography variant="body1" sx={{ marginBottom: '1rem' }}>
-        You can buy tickets for the SNiC 2022: CelerIT conference at
+        You can buy tickets for the SNiC 2023: CreativIT conference at
         {' '}
         <a href="https://stichting.snic.nl/about.html" target="_blank" rel="noreferrer">participating study associations.</a>
         {' '}

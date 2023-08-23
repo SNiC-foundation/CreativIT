@@ -56,7 +56,7 @@ function Register() {
               Activate your SNiC 2022: CelerIT ticket
             </TypographyHeader>
             <Typography variant="body1">
-              With this form, you can activate your ticket for SNiC 2022: CelerIT on November 30th.
+              With this form, you can activate your ticket for SNiC 2023 on November 29th.
               If you have not yet received a ticket, but you think you should have one, please
               contact your study association.
             </Typography>
