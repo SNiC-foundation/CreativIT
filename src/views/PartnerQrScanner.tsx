@@ -4,11 +4,11 @@ import {
 } from '@mui/material';
 import Button from '@mui/material/Button';
 import { AuthContext } from '../auth/AuthContextProvider';
-import TypographyHeader from '../components/layout/TypographyHeader';
 import QrScannerComponent from '../components/QrScannerComponent';
 import { ApiException, Client, QRParams } from '../clients/server.generated';
 import { AlertContext } from '../alerts/AlertContextProvider';
 import NotFound from './public/NotFound';
+import InfoItem from '../components/layout/InfoItem';
 
 function PartnerQrScanner() {
   const { user } = React.useContext(AuthContext);
@@ -33,10 +33,7 @@ function PartnerQrScanner() {
   };
 
   return (
-    <Box sx={{ textAlign: 'center' }}>
-      <TypographyHeader variant="h2">
-        Scan visitor&apos;s QR code
-      </TypographyHeader>
+    <InfoItem title="Scan visitor&apos;s QR code">
       <Grid container justifyContent="center">
         <Grid item xs={12} sm={8} md={6} lg={4}>
           <Paper elevation={3}>
@@ -68,7 +65,7 @@ function PartnerQrScanner() {
           </Paper>
         </Grid>
       </Grid>
-    </Box>
+    </InfoItem>
   );
 }
 

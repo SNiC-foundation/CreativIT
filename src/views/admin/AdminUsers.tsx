@@ -17,6 +17,7 @@ import SetPasswordReminderModal from '../../components/mailings/SetPasswordRemin
 import TracksReminderModal from '../../components/mailings/TracksReminderModal';
 import AutoSubscribeModal from '../../components/program/AutoSubscribeModal';
 import FinalInfoModal from '../../components/mailings/FinalInfoModal';
+import InfoItem from '../../components/layout/InfoItem';
 
 function AdminUsers() {
   const [loading, setLoading] = React.useState(false);
@@ -35,7 +36,7 @@ function AdminUsers() {
   }, {
     attribute: 'email',
     label: 'Email',
-    width: 200,
+    width: 250,
     fieldType: 'string',
     initial: '',
     validationError: (value: any) => notEmptyString(value) || !validator.isEmail(value),
@@ -137,9 +138,8 @@ function AdminUsers() {
   ) => UserRoleModal({ entity, roles: roles || [] });
 
   return (
-    <>
-      <TypographyHeader variant="h2">Users</TypographyHeader>
-      <Paper elevation={3} sx={{ my: '1rem' }}>
+    <InfoItem title="Users" random>
+      <Paper elevation={3} sx={{ my: '1rem', textAlign: 'left' }}>
         <CardContent>
           <TypographyHeader variant="h5" sx={{ marginBottom: 0 }}>Emails</TypographyHeader>
           <Box sx={{ marginBottom: '1rem' }}>
@@ -161,7 +161,7 @@ function AdminUsers() {
           </Box>
         </CardContent>
       </Paper>
-      <Paper elevation={3}>
+      <Paper elevation={3} sx={{ textAlign: 'left' }}>
         <CardContent>
           <AdminTable
             entityName="user"
@@ -175,7 +175,7 @@ function AdminUsers() {
           />
         </CardContent>
       </Paper>
-    </>
+    </InfoItem>
   );
 }
 

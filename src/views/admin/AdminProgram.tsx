@@ -4,10 +4,10 @@ import {
   Activity, ActivityParams, Client, CreateSubscribeActivityParams, ProgramPart, SubscribeActivity,
 } from '../../clients/server.generated';
 import AdminTable from '../../components/admin/AdminTable';
-import TypographyHeader from '../../components/layout/TypographyHeader';
 import { AdminPropField } from '../../components/admin/AdminProps';
 import { notEmptyString, validDate } from '../../components/admin/defaultValidators';
 import ActivitySpeakerModal from '../../components/admin/ActivitySpeakerModal';
+import InfoItem from '../../components/layout/InfoItem';
 
 function AdminProgram() {
   const [programParts, setProgramParts] = React.useState<ProgramPart[] | undefined>(undefined);
@@ -220,8 +220,7 @@ function AdminProgram() {
   };
 
   return (
-    <>
-      <TypographyHeader variant="h2">Program</TypographyHeader>
+    <InfoItem title="Program" random>
       <Paper elevation={3} sx={{ marginBottom: '2rem' }}>
         <CardContent>
           <AdminTable
@@ -252,7 +251,7 @@ function AdminProgram() {
           />
         </CardContent>
       </Paper>
-    </>
+    </InfoItem>
   );
 }
 

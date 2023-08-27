@@ -13,6 +13,7 @@ import { AlertContext } from '../../alerts/AlertContextProvider';
 import TicketCheckInInfo from '../../components/ticket/TicketCheckInInfo';
 import TicketScanHistory from '../../components/ticket/TicketScanHistory';
 import TicketTrackInfo from '../../components/ticket/TicketTrackInfo';
+import InfoItem from '../../components/layout/InfoItem';
 
 function CheckIn() {
   const [code, setCode] = React.useState('');
@@ -58,10 +59,7 @@ function CheckIn() {
   }
 
   return (
-    <>
-      <TypographyHeader variant="h2" sx={{ textAlign: 'center', margin: '1rem 0 2rem' }}>
-        Check in participants
-      </TypographyHeader>
+    <InfoItem title="Check in participants" random>
       <Grid container spacing={3}>
         <Grid item xs={12} md={6}>
           <Paper elevation={3}>
@@ -126,7 +124,7 @@ function CheckIn() {
           </Paper>
         </Grid>
       </Grid>
-    </>
+    </InfoItem>
   );
 }
 

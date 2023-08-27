@@ -1,10 +1,10 @@
 import React from 'react';
-import { Box, CardContent, Paper } from '@mui/material';
+import { CardContent, Paper } from '@mui/material';
 import { Client, Partner } from '../../clients/server.generated';
 import AdminTable from '../../components/admin/AdminTable';
-import TypographyHeader from '../../components/layout/TypographyHeader';
 import { AdminPropField } from '../../components/admin/AdminProps';
 import { notEmptyString } from '../../components/admin/defaultValidators';
+import InfoItem from '../../components/layout/InfoItem';
 
 function AdminPartners() {
   const [partners, setPartners] = React.useState<Partner[] | undefined>(undefined);
@@ -124,8 +124,7 @@ function AdminPartners() {
   };
 
   return (
-    <Box sx={{ width: '100%', minHeight: '100%' }}>
-      <TypographyHeader variant="h2">All Partners</TypographyHeader>
+    <InfoItem title="All Partners" purple inverse>
       <Paper elevation={3}>
         <CardContent>
           <AdminTable
@@ -139,7 +138,7 @@ function AdminPartners() {
           />
         </CardContent>
       </Paper>
-    </Box>
+    </InfoItem>
   );
 }
 

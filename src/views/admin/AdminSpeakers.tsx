@@ -2,9 +2,9 @@ import React from 'react';
 import { CardContent, Paper } from '@mui/material';
 import { Client, Speaker } from '../../clients/server.generated';
 import AdminTable from '../../components/admin/AdminTable';
-import TypographyHeader from '../../components/layout/TypographyHeader';
 import { AdminPropField } from '../../components/admin/AdminProps';
 import { notEmptyString } from '../../components/admin/defaultValidators';
+import InfoItem from '../../components/layout/InfoItem';
 
 function AdminSpeakers() {
   const [speakers, setSpeakers] = React.useState<Speaker[] | undefined>(undefined);
@@ -73,8 +73,7 @@ function AdminSpeakers() {
   };
 
   return (
-    <>
-      <TypographyHeader variant="h2">All Speakers</TypographyHeader>
+    <InfoItem title="All Speakers" purple inverse>
       <Paper elevation={3}>
         <CardContent>
           <AdminTable
@@ -88,7 +87,7 @@ function AdminSpeakers() {
           />
         </CardContent>
       </Paper>
-    </>
+    </InfoItem>
   );
 }
 

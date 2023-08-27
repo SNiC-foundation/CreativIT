@@ -4,9 +4,9 @@ import {
   Client, CreateTicketPrams, Ticket, User,
 } from '../../clients/server.generated';
 import AdminTable from '../../components/admin/AdminTable';
-import TypographyHeader from '../../components/layout/TypographyHeader';
 import { AdminPropField } from '../../components/admin/AdminProps';
 import CreateTicketModal from '../../components/ticket/CreateTicketModal';
+import InfoItem from '../../components/layout/InfoItem';
 
 function AdminTickets() {
   const [tickets, setTickets] = React.useState<Ticket[] | undefined>(undefined);
@@ -35,7 +35,7 @@ function AdminTickets() {
   }, {
     attribute: 'code',
     label: 'Code',
-    width: 150,
+    width: 300,
     fieldType: 'string',
     canBeUpdated: false,
     initial: '',
@@ -71,8 +71,7 @@ function AdminTickets() {
   };
 
   return (
-    <Box sx={{ width: '100%', minHeight: '100%' }}>
-      <TypographyHeader variant="h2">All Tickets</TypographyHeader>
+    <InfoItem title="All Tickets" random>
       <Paper elevation={3}>
         <CardContent>
           <Box sx={{ textAlign: 'right', marginBottom: '1em' }}>
@@ -87,7 +86,7 @@ function AdminTickets() {
           />
         </CardContent>
       </Paper>
-    </Box>
+    </InfoItem>
   );
 }
 

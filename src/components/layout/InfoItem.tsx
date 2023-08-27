@@ -15,10 +15,10 @@ function getImage(inverse: boolean, purple: boolean, random: boolean) {
     const isInverted = Math.random() < 0.5;
     const isPurple = Math.random() < 0.5;
 
-    return `lines/${isPurple ? 'purple' : 'purple2'}_${isInverted ? 'right' : 'left'}.svg`;
+    return `/lines/${isPurple ? 'purple' : 'purple2'}_${isInverted ? 'right' : 'left'}.svg`;
   }
 
-  return `lines/${purple ? 'purple' : 'purple2'}_${inverse ? 'right' : 'left'}.svg`;
+  return `/lines/${purple ? 'purple' : 'purple2'}_${inverse ? 'right' : 'left'}.svg`;
 }
 
 function InfoItem({

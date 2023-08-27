@@ -48,18 +48,17 @@ function AboutPage() {
       </InfoItem>
       <InfoItem title="Committee" inverse purple>
         <Box>
-          <img src="/Groepsfoto_celerit_scaled.jpg" alt="Groepsfoto" style={{ width: '100%' }} />
+          <img src="/committee.jpg" alt="Groepsfoto" style={{ width: '100%' }} />
           <span style={{ fontStyle: 'italic' }}>
-            From left to right: Samuel, Sanne, Irne, Wouter, Wouter, Leon, Susan, and Roy.
+            From left to right: Victor, Joris, Tieke, Luc, Lukas, Ceylan, Siem, and Diede.
           </span>
         </Box>
       </InfoItem>
-      <InfoItem title="Contact">
+      <InfoItem title="Contact us">
         <Box sx={{
           display: 'flex', flexFlow: 'column', alignItems: 'center', justifyContent: 'center',
         }}
         >
-          <TypographyHeader variant="h3">Contact us</TypographyHeader>
           <Container maxWidth="xs" sx={() => ({ textAlign: 'left' })}>
             <ContactInfoHeader variant="h5">General Email</ContactInfoHeader>
             <ContactInfoField><Link href="mailto:info@celerit.nl">info@celerit.nl</Link></ContactInfoField>
