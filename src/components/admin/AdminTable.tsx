@@ -58,7 +58,7 @@ function AdminTable<T, P = {}>(props: Props<T, P>) {
           width: c.width,
           filterable: false,
           sortable: false,
-          renderCell: (params: GridRenderCellParams<any, T>) => {
+          renderCell: (params: GridRenderCellParams<any, any>) => {
             if (params.value === null) return null;
             return (<img alt="logo" src={apiImageUrl(params.value)} style={{ maxHeight: '1rem', maxWidth: '2rem' }} />);
           },
@@ -68,7 +68,7 @@ function AdminTable<T, P = {}>(props: Props<T, P>) {
           field: c.attribute as string,
           headerName: c.label,
           width: c.width,
-          renderCell: (params: GridRenderCellParams<any, T>) => {
+          renderCell: (params: GridRenderCellParams<any, any>) => {
             let value = params.formattedValue;
             if (c.fieldType === 'dropdown') {
               value = c.options.find((o) => o.key === params.value)?.value;
@@ -106,7 +106,7 @@ function AdminTable<T, P = {}>(props: Props<T, P>) {
     disableColumnMenu: true,
     filterable: false,
     sortable: false,
-    renderCell: (params: GridRenderCellParams<any, T>) => (
+    renderCell: (params: GridRenderCellParams<any, any>) => (
       <div>
         <AdminUploadImage
           id={(params.row as any).id}

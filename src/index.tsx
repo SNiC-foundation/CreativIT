@@ -52,7 +52,7 @@ root.render(
                     top: '0',
                     right: '75vw',
                     height: '100vh',
-                    width: '970px',
+                    width: 'auto',
 
                     overflowY: 'hidden',
                     zIndex: '-1',

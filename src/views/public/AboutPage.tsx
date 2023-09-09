@@ -61,20 +61,20 @@ function AboutPage() {
         >
           <Container maxWidth="xs" sx={() => ({ textAlign: 'left' })}>
             <ContactInfoHeader variant="h5">General Email</ContactInfoHeader>
-            <ContactInfoField><Link href="mailto:info@celerit.nl">info@celerit.nl</Link></ContactInfoField>
+            <ContactInfoField><Link sx={{ color: 'white' }} href="mailto:pr@creativit.snic.nl">pr@creativit.snic.nl</Link></ContactInfoField>
             <ContactInfoHeader variant="h5">Business Email</ContactInfoHeader>
-            <ContactInfoField><Link href="mailto:partners@celerit.nl">partners@celerit.nl</Link></ContactInfoField>
+            <ContactInfoField><Link sx={{ color: 'white' }} href="mailto:pr@creativit.snic.nl">pr@creativit.snic.nl</Link></ContactInfoField>
             <ContactInfoHeader variant="h5">Phone</ContactInfoHeader>
-            <ContactInfoField>(+31) (040) 247 2815</ContactInfoField>
+            <ContactInfoField />
             <ContactInfoHeader variant="h5">Address</ContactInfoHeader>
             <ContactInfoField sx={{ whiteSpace: 'pre-wrap' }}>
-              GEWIS t.a.v. CelerIT
+              Sticky t.a.v. CreativIT
               <br />
               MF 3.155
               <br />
               Postbus 513
               <br />
-              Eindhoven, 5600MB
+              Utrecht, 5600MB
               <br />
             </ContactInfoField>
           </Container>

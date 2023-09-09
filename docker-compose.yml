@@ -2,21 +2,23 @@ version: '2'
 services:
   frontend:
     build:
-      context: ../CelerIT-Website-Frontend
+      context: ../CreativIT
       dockerfile: Dockerfile
-    image: default.docker-registry.gewis.nl/snic-congress-frontend:latest
+    image: creativit/frontend:latest
+    container_name: frontend
     restart: 'unless-stopped'
     ports:
       - '9639:80'
     networks:
       - snic-congress
     volumes:
-      - partners:/usr/src/app/data/logos
-      - speakers:/usr/src/app/data/backgrounds
+      - partners:/usr/src/app/data/partners
+      - speakers:/usr/src/app/data/speakers
       - barcodes:/usr/src/app/data/barcodes
   backend:
-    build: ../CelerIT-Website-Backend
-    image: default.docker-registry.gewis.nl/snic-congress-backend:latest
+    build: ../CreativIT-backend
+    image: creativit/backend
+    container_name: backend
     restart: 'unless-stopped'
     networks:
       - snic-congress
@@ -31,9 +33,9 @@ services:
       - SERVER_HOST=localhost:9639
       - TZ=Europe/Amsterdam
       - TYPEORM_CONNECTION=mysql
-      - TYPEORM_HOST=localhost
+      - TYPEORM_HOST=db
       - TYPEORM_PORT=3306
-      - TYPEORM_DATABASE=snic2022
+      - TYPEORM_DATABASE=snic2023
       - TYPEORM_USERNAME=svc-celerit
       - TYPEORM_PASSWORD=
       - TYPEORM_SYNCHRONIZE=true
@@ -44,7 +46,7 @@ services:
       - MAIL_USER=snic@example.com
       - MAIL_PASSWORD=password
       - MAIL_FROM=SNiC 2022 <snic@example.com>
-      - URL=https://celerit.nl
+      - URL=https://snic-creativit.nl
 volumes:
   partners:
     driver: local
@@ -55,4 +57,3 @@ volumes:
 networks:
   snic-congress:
     driver: bridge
-

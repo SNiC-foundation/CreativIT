@@ -280,7 +280,7 @@ function AdminProps<T, P = {}>(props: AdminPropsProps<T, P>) {
                     checked={updatedEntity[field.attribute] !== undefined}
                     onChange={(event) => {
                       if (event.target.checked && entity !== undefined) {
-                        updateSingleField(field.attribute, entity[field.attribute]);
+                        updateSingleField(field.attribute, entity![field.attribute]);
                       } else if (event.target.checked && entity === undefined) {
                         updateSingleField(
                           field.attribute,
