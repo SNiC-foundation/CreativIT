@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Button, Typography } from '@mui/material';
+import { Box, Button } from '@mui/material';
 import { Link } from 'react-router-dom';
 import { ArrowForward } from '@mui/icons-material';
 import TypographyHeader from '../layout/TypographyHeader';
@@ -17,13 +17,6 @@ function PartnersComponent({ partners }: Props) {
         <TypographyHeader variant="h2">
           2023 Partners
         </TypographyHeader>
-        <Typography variant="body1" sx={{ marginBottom: '1rem' }}>
-          Interested in becoming a partner or speaker?
-          {' '}
-          <a href="/about">Contact us</a>
-          {' '}
-          for details.
-        </Typography>
         <Button component={Link} to="/partners" variant="contained" size="large" startIcon={<ArrowForward />}>
           More about the 2023 partners
         </Button>

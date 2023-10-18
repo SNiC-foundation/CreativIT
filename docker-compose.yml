@@ -36,17 +36,28 @@ services:
       - TYPEORM_HOST=db
       - TYPEORM_PORT=3306
       - TYPEORM_DATABASE=snic2023
-      - TYPEORM_USERNAME=svc-celerit
+      - TYPEORM_USERNAME=svc-creativit
       - TYPEORM_PASSWORD=
       - TYPEORM_SYNCHRONIZE=true
       - TYPEORM_LOGGING=false
-      - SESSION_SECRET=Snic2022
-      - MAIL_HOST=mail.example.com
-      - MAIL_PORT=465
-      - MAIL_USER=snic@example.com
-      - MAIL_PASSWORD=password
-      - MAIL_FROM=SNiC 2022 <snic@example.com>
+      - SESSION_SECRET=Snic2023
+      - SMTP_USERNAME=noreply@snic.nl
+      - SMTP_PASSWORD=
       - URL=https://snic-creativit.nl
+  db:
+    image: mysql:latest
+    container_name: db
+    restart: 'unless-stopped'
+    networks:
+      - snic-congress
+    environment:
+      - MYSQL_ROOT_PASSWORD=root_password
+      - MYSQL_DATABASE=snic2023
+      - MYSQL_USER=svc-celerit
+      - MYSQL_PASSWORD=
+    volumes:
+      - db_data:/var/lib/mysql
+
 volumes:
   partners:
     driver: local
@@ -54,6 +65,9 @@ volumes:
     driver: local
   barcodes:
     driver: local
+  db_data:
+    driver: local
+
 networks:
   snic-congress:
     driver: bridge

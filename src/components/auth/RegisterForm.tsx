@@ -2,7 +2,11 @@ import React from 'react';
 import {
   Alert,
   Button, Checkbox, CircularProgress, Collapse, FormControl, FormControlLabel,
+  // FormLabel,
+  // Radio,
+  // RadioGroup,
   TextField,
+  // Typography,
 } from '@mui/material';
 import validator from 'validator';
 import {
@@ -19,6 +23,7 @@ interface Props {
 function RegisterForm({ user, handleSubmit }: Props) {
   const [ticket, setTicket] = React.useState<Ticket | undefined>(user ? user.ticket : undefined);
   const [ticketValid, setTicketValid] = React.useState(!!(user && user.ticket));
+  // const [transport, setTransport] = React.useState('SNiC transport');
   const [email, setEmail] = React.useState(user ? user.email : '');
   const [name, setName] = React.useState(user ? user.name : '');
   const [dietaryWishes, setDietaryWishes] = React.useState(user ? user.dietaryWishes : '');
@@ -52,6 +57,31 @@ function RegisterForm({ user, handleSubmit }: Props) {
     }));
     setLoading(false);
   };
+
+  // const transportField = () => {
+  //   if (user && !user.ticket) return null;
+  //   return (
+  //     <FormControl variant="standard" sx={{ my, width: '100%' }}>
+  //       <FormLabel component="legend">Transport</FormLabel>
+  //       <Typography variant="body2">
+  //         For sticky and A-Eskwadraat:
+  //         are you coming by public transport or own transport?
+  //         Other associations can fill in SNiC Transport.
+  //       </Typography>
+  //       <RadioGroup
+  //         aria-label="transport"
+  //         name="transport"
+  //         value={transport}
+  //         onChange={(event) => setTransport(event.target.value)}
+  //       >
+  //         <FormControlLabel value="SNiC transport" control={<Radio />} label="SNiC transport" />
+  //         <FormControlLabel value="Public transport"
+  // control={<Radio />} label="Public transport" />
+  //         <FormControlLabel value="Own transport" control={<Radio />} label="Own transport" />
+  //       </RadioGroup>
+  //     </FormControl>
+  //   );
+  // };
 
   const ticketField = () => {
     if (user && !user.ticket) return null;
@@ -131,6 +161,7 @@ function RegisterForm({ user, handleSubmit }: Props) {
           label="Dietary wishes"
         />
       </FormControl>
+      {/* {transportField()} */}
       <FormControl variant="standard" sx={{ my, width: '100%' }} error={!agreeToPrivacyPolicy}>
         <FormControlLabel
           control={(
@@ -145,7 +176,7 @@ function RegisterForm({ user, handleSubmit }: Props) {
             <span>
               I agree with the
               {' '}
-              <a target="_blank" href="/celerit-privacy-policy.pdf">privacy policy</a>
+              <a target="_blank" href="/creativit-privacy-policy.pdf">privacy policy</a>
               {' '}
               of SNiC 2023: CreativIT*
             </span>

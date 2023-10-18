@@ -26,7 +26,7 @@ function PartnerLogo({ partner, size, extensive }: Props) {
         padding: '1.5rem',
         width: size,
 
-        backgroundColor: 'primary.main',
+        backgroundColor: 'white',
         borderRadius: '5px',
         boxShadow: '2px 4px 5px 4px #00000040',
       }}
@@ -43,7 +43,7 @@ function PartnerLogo({ partner, size, extensive }: Props) {
       </Box>
       {extensive ? (
         <Box>
-          <TypographyHeader variant="h6" sx={{ paddingTop: '1rem', color: '#f9eee3', fontStyle: 'italic' }}>
+          <TypographyHeader variant="h6" sx={{ paddingTop: '1rem', color: 'black', fontStyle: 'italic' }}>
             {partner.specialization}
           </TypographyHeader>
           {partner.shortDescription ? (

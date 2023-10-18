@@ -53,7 +53,7 @@ function Register() {
             component="form"
           >
             <TypographyHeader variant="h5">
-              Activate your SNiC 2022: CelerIT ticket
+              Activate your SNiC 2023: CreativIT ticket
             </TypographyHeader>
             <Typography variant="body1">
               With this form, you can activate your ticket for SNiC 2023 on November 29th.
