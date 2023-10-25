@@ -2,11 +2,10 @@ import React from 'react';
 import {
   Alert,
   Button, Checkbox, CircularProgress, Collapse, FormControl, FormControlLabel,
-  // FormLabel,
-  // Radio,
-  // RadioGroup,
+  FormLabel,
+  Radio,
+  RadioGroup,
   TextField,
-  // Typography,
 } from '@mui/material';
 import validator from 'validator';
 import {
@@ -23,10 +22,9 @@ interface Props {
 function RegisterForm({ user, handleSubmit }: Props) {
   const [ticket, setTicket] = React.useState<Ticket | undefined>(user ? user.ticket : undefined);
   const [ticketValid, setTicketValid] = React.useState(!!(user && user.ticket));
-  // const [transport, setTransport] = React.useState('SNiC transport');
   const [email, setEmail] = React.useState(user ? user.email : '');
   const [name, setName] = React.useState(user ? user.name : '');
-  const [dietaryWishes, setDietaryWishes] = React.useState(user ? user.dietaryWishes : '');
+  const [dietaryWishes, setDietaryWishes] = React.useState(user ? user.dietaryWishes : 'none');
   const [agreeToPrivacyPolicy, setAgreeToPrivacyPolicy] = React.useState(
     user ? user.agreeToPrivacyPolicy : false,
   );
@@ -57,31 +55,6 @@ function RegisterForm({ user, handleSubmit }: Props) {
     }));
     setLoading(false);
   };
-
-  // const transportField = () => {
-  //   if (user && !user.ticket) return null;
-  //   return (
-  //     <FormControl variant="standard" sx={{ my, width: '100%' }}>
-  //       <FormLabel component="legend">Transport</FormLabel>
-  //       <Typography variant="body2">
-  //         For sticky and A-Eskwadraat:
-  //         are you coming by public transport or own transport?
-  //         Other associations can fill in SNiC Transport.
-  //       </Typography>
-  //       <RadioGroup
-  //         aria-label="transport"
-  //         name="transport"
-  //         value={transport}
-  //         onChange={(event) => setTransport(event.target.value)}
-  //       >
-  //         <FormControlLabel value="SNiC transport" control={<Radio />} label="SNiC transport" />
-  //         <FormControlLabel value="Public transport"
-  // control={<Radio />} label="Public transport" />
-  //         <FormControlLabel value="Own transport" control={<Radio />} label="Own transport" />
-  //       </RadioGroup>
-  //     </FormControl>
-  //   );
-  // };
 
   const ticketField = () => {
     if (user && !user.ticket) return null;
@@ -152,16 +125,39 @@ function RegisterForm({ user, handleSubmit }: Props) {
         />
       </FormControl>
       {studyProgramField()}
-      <FormControl variant="standard" sx={{ my, width: '100%' }}>
-        <TextField
-          id="diet"
-          onChange={(event) => setDietaryWishes(event.target.value)}
-          value={dietaryWishes}
-          variant="standard"
-          label="Dietary wishes"
-        />
+      <FormControl variant="standard" sx={{ width: '100%' }}>
+        <FormLabel id="diet-label">Dietary wishes</FormLabel>
+        <RadioGroup
+          aria-labelledby="diet-label"
+          name="diet"
+          value={dietaryWishes.startsWith('other') ? 'other' : dietaryWishes}
+          onChange={(event) => {
+            if (event.target.value === 'other') {
+              setDietaryWishes(`other: ${dietaryWishes.split(': ')[1]}`);
+            } else {
+              setDietaryWishes(event.target.value);
+            }
+          }}
+        >
+          <FormControlLabel value="none" control={<Radio />} label="None" />
+          <FormControlLabel value="vegetarian" control={<Radio />} label="Vegetarian" />
+          <FormControlLabel value="vegan" control={<Radio />} label="Vegan" />
+          <FormControlLabel
+            value="other"
+            control={<Radio />}
+            label={(
+              <TextField
+                id="other-diet"
+                value={(dietaryWishes.startsWith('other') ? dietaryWishes.split(': ')[1] : '')}
+                onChange={(event) => {
+                  setDietaryWishes(`other: ${event.target.value}`);
+                }}
+                variant="standard"
+              />
+    )}
+          />
+        </RadioGroup>
       </FormControl>
-      {/* {transportField()} */}
       <FormControl variant="standard" sx={{ my, width: '100%' }} error={!agreeToPrivacyPolicy}>
         <FormControlLabel
           control={(
