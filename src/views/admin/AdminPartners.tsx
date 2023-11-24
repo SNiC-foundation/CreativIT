@@ -7,96 +7,115 @@ import { notEmptyString } from '../../components/admin/defaultValidators';
 import InfoItem from '../../components/layout/InfoItem';
 
 function AdminPartners() {
-  const [partners, setPartners] = React.useState<Partner[] | undefined>(undefined);
+  const [partners, setPartners] = React.useState<Partner[] | undefined>(
+    undefined,
+  );
   const [loading, setLoading] = React.useState(true);
 
   const getPartners = () => {
     const client = new Client();
-    client.getAllPartners()
-      .then((p) => {
-        setPartners(p);
-        setLoading(false);
-      });
+    client.getAllPartners().then((p) => {
+      setPartners(p);
+      setLoading(false);
+    });
   };
 
   React.useEffect(() => {
     getPartners();
   }, []);
 
-  const entityColumns: AdminPropField<Partner>[] = [{
-    attribute: 'logoFilename',
-    label: '',
-    width: 50,
-    fieldType: 'image',
-    canBeUpdated: false,
-    initial: '',
-  }, {
-    attribute: 'name',
-    label: 'Name',
-    width: 150,
-    fieldType: 'string',
-    initial: '',
-    validationError: notEmptyString,
-    canBeUpdated: true,
-  }, {
-    attribute: 'package',
-    label: 'Package',
-    width: 90,
-    fieldType: 'dropdown',
-    initial: 'bronze',
-    options: [{
-      key: 'bronze',
-      value: 'Bronze',
-    }, {
-      key: 'silver',
-      value: 'Silver',
-    }, {
-      key: 'gold',
-      value: 'Gold',
-    }, {
-      key: 'platinum',
-      value: 'Platinum',
-    }],
-    canBeUpdated: true,
-  }, {
-    attribute: 'location',
-    label: 'Location',
-    width: 120,
-    fieldType: 'string',
-    initial: '',
-    validationError: notEmptyString,
-    canBeUpdated: true,
-  }, {
-    attribute: 'specialization',
-    label: 'Specialization',
-    width: 180,
-    fieldType: 'string',
-    initial: '',
-    validationError: notEmptyString,
-    canBeUpdated: true,
-  }, {
-    attribute: 'shortDescription',
-    label: 'Description (short)',
-    width: 300,
-    fieldType: 'text',
-    initial: '',
-    canBeUpdated: true,
-  }, {
-    attribute: 'description',
-    label: 'Description',
-    width: 300,
-    fieldType: 'text',
-    initial: '',
-    canBeUpdated: true,
-  }, {
-    attribute: 'url',
-    label: 'URL',
-    width: 200,
-    fieldType: 'string',
-    initial: '',
-    validationError: notEmptyString,
-    canBeUpdated: true,
-  }];
+  const entityColumns: AdminPropField<Partner>[] = [
+    {
+      attribute: 'logoFilename',
+      label: '',
+      width: 50,
+      fieldType: 'image',
+      canBeUpdated: false,
+      initial: '',
+    },
+    {
+      attribute: 'name',
+      label: 'Name',
+      width: 150,
+      fieldType: 'string',
+      initial: '',
+      validationError: notEmptyString,
+      canBeUpdated: true,
+    },
+    {
+      attribute: 'package',
+      label: 'Package',
+      width: 90,
+      fieldType: 'dropdown',
+      initial: 'bronze',
+      options: [
+        {
+          key: 'copper',
+          value: 'Copper',
+        },
+        {
+          key: 'bronze',
+          value: 'Bronze',
+        },
+        {
+          key: 'silver',
+          value: 'Silver',
+        },
+        {
+          key: 'gold',
+          value: 'Gold',
+        },
+        {
+          key: 'platinum',
+          value: 'Platinum',
+        },
+      ],
+      canBeUpdated: true,
+    },
+    {
+      attribute: 'location',
+      label: 'Location',
+      width: 120,
+      fieldType: 'string',
+      initial: '',
+      validationError: notEmptyString,
+      canBeUpdated: true,
+    },
+    {
+      attribute: 'specialization',
+      label: 'Specialization',
+      width: 180,
+      fieldType: 'string',
+      initial: '',
+      validationError: notEmptyString,
+      canBeUpdated: true,
+    },
+    {
+      attribute: 'shortDescription',
+      label: 'Description (short)',
+      width: 300,
+      fieldType: 'text',
+      initial: '',
+      canBeUpdated: true,
+    },
+    {
+      attribute: 'description',
+      label: 'Description',
+      width: 300,
+      fieldType: 'text',
+      initial: '',
+      canBeUpdated: true,
+    },
+    {
+      attribute: 'url',
+      label: 'URL',
+      width: 200,
+      fieldType: 'string',
+      initial: '',
+      validationError: notEmptyString,
+      canBeUpdated: true,
+    },
+  ];
 
   const handleCreate = async (partner: Partner) => {
     setLoading(true);
