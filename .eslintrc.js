@@ -18,8 +18,14 @@ module.exports = {
   },
   plugins: ["react", "@typescript-eslint"],
   rules: {
-    "linebreak-style": ["error", "windows"],
+    "linebreak-style": ["error", "unix"],
     "import/prefer-default-export": "off",
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "devDependencies": ["**/setupTests.ts", "**/*.test.{ts,tsx}", "src/setupTests.ts"]
+      }
+    ],
     "class-methods-use-this": "off",
     camelcase: "off",
     "import/extensions": [
